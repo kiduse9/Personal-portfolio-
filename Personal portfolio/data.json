@@ -1,0 +1,74 @@
+{
+  "profile": {
+    "name": "Kidus Ermias",
+    "shortName": "Kidus",
+    "role": "Software Engineering Student & Developer",
+    "tagline": "I build thoughtful digital experiences, from polished interfaces to practical backend systems.",
+    "summary": "I'm a Senior Software Engineering student at HiLCoE School of Computer Science and Technology, interested in building useful, reliable software and continuously improving my craft.",
+    "location": "Addis Ababa, Ethiopia",
+    "availability": "Open to opportunities",
+    "email": "kiduse816@gmail.com",
+    "github": "https://github.com/kiduse9",
+    "instagram": "https://www.instagram.com/kiduse9",
+    "education": "Senior Software Engineering Student — HiLCoE School of Computer Science and Technology",
+    "educationUrl": "https://hilcoe.net/",
+    "contactMessage": "Have an idea, a project, or an opportunity in mind? I'd be glad to hear from you."
+  },
+  "skills": [
+    {
+      "category": "Frontend",
+      "description": "Building responsive and accessible user interfaces.",
+      "items": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "React"
+      ]
+    },
+    {
+      "category": "Backend & Data",
+      "description": "Working with application logic, APIs, and data.",
+      "items": [
+        "Backend Development",
+        "SQL",
+        "Prisma"
+      ]
+    },
+    {
+      "category": "Programming",
+      "description": "Core programming and problem-solving.",
+      "items": [
+        "C++",
+        "Java",
+        "JavaScript"
+      ]
+    },
+    {
+      "category": "Engineering",
+      "description": "Planning, maintaining, and delivering software.",
+      "items": [
+        "Software Project Management",
+        "Website Maintenance"
+      ]
+    }
+  ],
+  "projects": [],
+  "journey": [
+    {
+      "period": "Current",
+      "title": "Senior Software Engineering Student",
+      "organization": "HiLCoE School of Computer Science and Technology",
+      "description": "Studying software engineering and developing practical skills across programming, web development, databases, and software project work."
+    }
+  ],
+  "socials": [
+    {
+      "label": "GitHub",
+      "url": "https://github.com/kiduse9"
+    },
+    {
+      "label": "Instagram",
+      "url": "https://www.instagram.com/kiduse9"
+    }
+  ]
+}
