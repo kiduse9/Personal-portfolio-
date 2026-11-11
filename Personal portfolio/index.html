@@ -1,434 +1,115 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Kidus Ermias - Software Engineering Student and Full-Stack Developer. Explore my projects, skills and experience.">
-    <meta name="theme-color" content="#080b14">
-    <title>Kidus Ermias | Software Developer</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['DM Mono', 'monospace']
-                    },
-                    colors: {
-                        dark: '#080b14',
-                        surface: '#111827',
-                        accent: '#818cf8',
-                        cyan: '#22d3ee'
-                    }
-                }
-            }
-        };
-    </script>
-
-    <style>
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-
-        body {
-            background: #080b14;
-            color: #e5e7eb;
-            font-family: 'Inter', sans-serif;
-        }
-
-        ::selection {
-            background: #818cf8;
-            color: white;
-        }
-
-        .gradient-text {
-            background: linear-gradient(110deg, #818cf8, #22d3ee);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        .glass {
-            background: rgba(17, 24, 39, 0.72);
-            border: 1px solid rgba(148, 163, 184, 0.12);
-            backdrop-filter: blur(14px);
-        }
-
-        .project-card {
-            transition: transform .3s ease, border-color .3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(129, 140, 248, .65);
-        }
-
-        .glow {
-            box-shadow: 0 0 45px rgba(99, 102, 241, .12);
-        }
-
-        .timeline-line {
-            border-left: 1px solid rgba(129, 140, 248, .35);
-        }
-
-        .terminal-shell {
-            background: #050a08;
-            border: 1px solid #1c4934;
-            box-shadow: 0 0 60px rgba(34, 197, 94, .08);
-        }
-
-        .terminal-screen {
-            background:
-                repeating-linear-gradient(
-                    to bottom,
-                    rgba(255,255,255,.018) 0px,
-                    rgba(255,255,255,.018) 1px,
-                    transparent 2px,
-                    transparent 4px
-                ),
-                #050a08;
-        }
-
-        .terminal-text {
-            color: #4ade80;
-            text-shadow: 0 0 7px rgba(74, 222, 128, .25);
-        }
-
-        .terminal-cursor {
-            animation: blink 1s steps(2, start) infinite;
-        }
-
-        @keyframes blink {
-            to { visibility: hidden; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
-        }
-
-        .float-animation {
-            animation: float 5s ease-in-out infinite;
-        }
-
-        .fade-in {
-            animation: fadeIn .6s ease both;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .terminal-mode {
-            background: #020704;
-        }
-
-        .terminal-mode .terminal-shell {
-            min-height: calc(100vh - 150px);
-        }
-
-        button:focus-visible,
-        a:focus-visible,
-        input:focus-visible {
-            outline: 2px solid #22d3ee;
-            outline-offset: 4px;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *, *::before, *::after {
-                scroll-behavior: auto !important;
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100b20">
+  <meta name="description" content="Kidus Ermias — software engineering student and developer. Explore my work, skills, and journey in KIDUS.OS.">
+  <meta property="og:title" content="Kidus Ermias | KIDUS.OS">
+  <meta property="og:description" content="A desktop-inspired portfolio by Kidus Ermias.">
+  <title>KIDUS.OS — Kidus Ermias</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
+  <div id="boot" class="boot-screen" aria-live="polite">
+    <div class="boot-mark">K<span>.</span></div>
+    <p class="mono">KIDUS.OS <span>v1.0.0</span></p>
+    <div class="boot-track"><i></i></div>
+    <small id="boot-status">Starting portfolio environment…</small>
+  </div>
 
-    <!-- ================= NAVIGATION ================= -->
-
-    <header class="fixed top-0 left-0 w-full z-50 border-b border-white/5 bg-dark/85 backdrop-blur-xl">
-        <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
-            <a href="#home" class="font-bold text-xl tracking-tight">
-                KE<span class="gradient-text">.</span>
-            </a>
-
-            <div class="hidden md:flex gap-7 text-sm text-gray-400">
-                <a href="#about" class="hover:text-white transition">About</a>
-                <a href="#skills" class="hover:text-white transition">Skills</a>
-                <a href="#projects" class="hover:text-white transition">Projects</a>
-                <a href="#experience" class="hover:text-white transition">Experience</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
-            </div>
-
-            <button
-                id="modeToggle"
-                class="px-4 py-2 rounded-lg border border-indigo-400/40 text-indigo-300 hover:bg-indigo-500/10 transition text-sm font-mono"
-                aria-pressed="false"
-                aria-label="Switch to terminal mode"
-            >
-                &gt; Terminal
-            </button>
-
-        </nav>
+  <main id="desktop" class="desktop hidden">
+    <div class="wallpaper-glow glow-one"></div><div class="wallpaper-glow glow-two"></div>
+    <header class="topbar">
+      <button class="brand" id="brand-home" aria-label="Show desktop"><span class="brand-icon">K</span><span>KIDUS<span class="brand-muted">.OS</span></span></button>
+      <div class="topbar-center"><span class="status-dot"></span><span>Portfolio environment</span></div>
+      <div class="topbar-right"><span class="top-date" id="top-date"></span><span class="top-time" id="top-time"></span></div>
     </header>
 
-
-    <!-- ================= GUI VIEW ================= -->
-
-    <main id="guiView">
-
-        <!-- HERO -->
-        <section id="home" class="min-h-screen flex items-center pt-24 px-6 relative overflow-hidden">
-
-            <div class="absolute top-20 right-0 w-96 h-96 bg-indigo-600/10 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-10 left-0 w-80 h-80 bg-cyan-500/10 rounded-full blur-[120px]"></div>
-
-            <div class="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-16 items-center relative z-10">
-
-                <div class="fade-in">
-                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-gray-300 mb-8">
-                        <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-                        <span id="availability">Available for opportunities</span>
-                    </div>
-
-                    <p class="text-gray-400 text-lg mb-3">Hello, I'm</p>
-
-                    <h1 id="heroName" class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-                        Kidus <span class="gradient-text">Ermias.</span>
-                    </h1>
-
-                    <h2 id="heroRole" class="text-xl md:text-2xl text-gray-300 mb-6">
-                        Software Engineering Student & Developer
-                    </h2>
-
-                    <p id="heroSummary" class="text-gray-400 leading-8 max-w-xl mb-9">
-                        Building modern digital experiences through clean code and creative problem-solving.
-                    </p>
-
-                    <div class="flex flex-wrap gap-4">
-                        <a href="https://github.com/kiduse9" class="px-7 py-3 rounded-lg bg-indigo-500 hover:bg-indigo-400 text-white font-semibold transition">
-                            Explore My Work
-                        </a>
-
-                        <a href="https://www.instagram.com/kiduse9?psln=MTh2OWNneDhobnk4ag%3D%3D&utm_source=qr" class="px-7 py-3 rounded-lg border border-gray-700 hover:border-indigo-400 transition">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-
-                <div class="hidden md:flex justify-center items-center">
-                    <div class="relative float-animation">
-                        <div class="absolute inset-0 bg-indigo-500/20 blur-3xl rounded-full"></div>
-
-                        <div class="relative w-80 h-80 rounded-3xl glass glow flex items-center justify-center overflow-hidden">
-                            <img
-                                id="profileImage"
-                                src="assets/profile.jpg"
-                                alt="Portrait of Kidus Ermias"
-                                class="w-full h-full object-cover hidden"
-                            >
-                            <div id="profileFallback" class="text-center">
-                                <div class="text-7xl font-bold gradient-text mb-3">KE</div>
-                                <p class="text-gray-500 font-mono text-sm">developer.init()</p>
-                            </div>
-                        </div>
-
-                        <div class="absolute -bottom-5 -right-5 glass rounded-xl p-4 font-mono text-xs text-cyan-300">
-                            <span class="text-green-400">●</span> Building something great
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- ABOUT -->
-        <section id="about" class="py-28 px-6">
-            <div class="max-w-5xl mx-auto">
-
-                <div class="mb-12">
-                    <p class="text-indigo-400 font-mono text-sm mb-3">01 / INTRODUCTION</p>
-                    <h2 class="text-4xl font-bold">About <span class="gradient-text">Me</span></h2>
-                </div>
-
-                <div class="glass rounded-2xl p-8 md:p-12">
-                    <p id="aboutText" class="text-gray-300 leading-9 text-lg"></p>
-
-                    <div class="grid sm:grid-cols-2 gap-6 mt-10 pt-8 border-t border-white/10">
-                        <div>
-                            <p class="text-gray-500 text-sm mb-2">Education</p>
-                            <p id="education" class="font-semibold"></p>
-                            <a href="https://hilcoe.net/"></a>
-                        </div>
-                        <div>
-                            <p class="text-gray-500 text-sm mb-2">Location</p>
-                            <p id="location" class="font-semibold"></p>
-                            <a href="https://maps.app.goo.gl/Vn7SvhJ63MMkDqug7"></a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-
-        <!-- SKILLS -->
-        <section id="skills" class="py-28 px-6 bg-white/[0.015]">
-            <div class="max-w-6xl mx-auto">
-
-                <div class="mb-12">
-                    <p class="text-indigo-400 font-mono text-sm mb-3">02 / TECHNOLOGIES</p>
-                    <h2 class="text-4xl font-bold">Skills & <span class="gradient-text">Expertise</span></h2>
-                    <p class="text-gray-400 mt-4">Technologies and tools I use to bring ideas to life.</p>
-                </div>
-
-                <div id="skillsContainer" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"></div>
-
-            </div>
-        </section>
-
-
-        <!-- PROJECTS -->
-        <section id="projects" class="py-28 px-6">
-            <div class="max-w-6xl mx-auto">
-
-                <div class="mb-12">
-                    <p class="text-indigo-400 font-mono text-sm mb-3">03 / PORTFOLIO</p>
-                    <h2 class="text-4xl font-bold">Featured <span class="gradient-text">Projects</span></h2>
-                    <p class="text-gray-400 mt-4">Some things I've worked on.</p>
-                </div>
-
-                <div id="projectsContainer" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-
-            </div>
-        </section>
-
-
-        <!-- QUALIFICATIONS / EXPERIENCE -->
-        <section id="experience" class="py-28 px-6 bg-white/[0.015]">
-            <div class="max-w-5xl mx-auto">
-
-                <div class="mb-14">
-                    <p class="text-indigo-400 font-mono text-sm mb-3">04 / MY JOURNEY</p>
-                    <h2 class="text-4xl font-bold">Qualifications & <span class="gradient-text">Experience</span></h2>
-                </div>
-
-                <div id="timelineContainer" class="ml-3 pl-8 timeline-line space-y-12"></div>
-
-            </div>
-        </section>
-
-
-        <!-- CONTACT -->
-        <section id="contact" class="py-28 px-6">
-            <div class="max-w-4xl mx-auto text-center">
-
-                <p class="text-indigo-400 font-mono text-sm mb-4">05 / GET IN TOUCH</p>
-
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Let's Build Something <span class="gradient-text">Together.</span>
-                </h2>
-
-                <p id="contactText" class="text-gray-400 max-w-xl mx-auto leading-8 mb-9"></p>
-
-                <a id="emailLink" href="kiduse816@gmail.com"
-                   class="inline-block px-8 py-4 bg-indigo-500 hover:bg-indigo-400 rounded-xl font-semibold transition">
-                    Say Hello →
-                </a>
-
-                <div id="socialLinks" class="flex justify-center flex-wrap gap-6 mt-10 text-gray-400 text-sm"></div>
-
-            </div>
-        </section>
-
-        <footer class="border-t border-white/5 py-8 text-center text-gray-500 text-sm">
-            <p id="footerText">© 2026 Kidus Ermias. Built with passion and code.</p>
-        </footer>
-
-    </main>
-
-
-    <!-- ================= TERMINAL VIEW ================= -->
-
-    <main id="terminalView" class="hidden min-h-screen pt-28 pb-10 px-4 md:px-6 terminal-mode">
-
-        <div class="max-w-5xl mx-auto">
-
-            <div class="terminal-shell rounded-xl overflow-hidden">
-
-                <!-- Terminal title bar -->
-                <div class="bg-[#0b1710] border-b border-green-900/50 px-5 py-4 flex justify-between items-center">
-
-                    <div class="flex items-center gap-2">
-                        <span class="w-3 h-3 bg-red-500 rounded-full"></span>
-                        <span class="w-3 h-3 bg-yellow-500 rounded-full"></span>
-                        <span class="w-3 h-3 bg-green-500 rounded-full"></span>
-                        <span class="text-green-500/70 font-mono text-xs ml-3">
-                            kidus@portfolio: ~
-                        </span>
-                    </div>
-
-                    <span class="text-green-700 font-mono text-xs">BASH — PORTFOLIO CLI</span>
-                </div>
-
-                <!-- Terminal output -->
-                <div
-                    id="terminalOutput"
-                    class="terminal-screen terminal-text font-mono text-sm p-5 md:p-8 h-[60vh] min-h-[400px] overflow-y-auto"
-                    role="log"
-                    aria-live="polite"
-                    aria-label="Terminal output"
-                    tabindex="0"
-                ></div>
-
-                <!-- Input -->
-                <form id="terminalForm" class="bg-[#07110b] border-t border-green-900/40 p-5 flex items-center gap-3">
-
-                    <label for="terminalInput" class="terminal-text font-mono whitespace-nowrap">
-                        guest@kidus:~$
-                    </label>
-
-                    <input
-                        id="terminalInput"
-                        type="text"
-                        autocomplete="off"
-                        spellcheck="false"
-                        aria-label="Enter a terminal command"
-                        placeholder="Type help..."
-                        class="flex-1 bg-transparent outline-none border-none text-green-300 font-mono placeholder:text-green-900 min-w-0"
-                    >
-
-                    <button type="submit" class="text-green-400 font-mono hover:text-white">
-                        ENTER ↵
-                    </button>
-                </form>
-
-            </div>
-
-            <p class="text-center text-green-900 font-mono text-xs mt-5">
-                Interactive portfolio environment // Type 'help' to see available commands
-            </p>
-
-        </div>
-    </main>
-
-
-    <!-- JavaScript -->
-    <script src="script.js" defer></script>
-
+    <section class="desktop-content">
+      <div class="welcome">
+        <p class="eyebrow mono">PERSONAL PORTFOLIO / 001</p>
+        <h1>Welcome to <span>KIDUS.OS</span></h1>
+        <p class="welcome-copy">A little workspace that tells my story as a developer.</p>
+        <div class="welcome-hint"><span class="hint-key">⌘</span><span class="hint-key">K</span> <span>Open command palette</span></div>
+      </div>
+
+      <div class="desktop-icons" aria-label="Portfolio applications">
+        <button class="desktop-icon" data-open="about"><span class="app-icon icon-about">K</span><span>About me</span></button>
+        <button class="desktop-icon" data-open="projects"><span class="app-icon icon-projects">▦</span><span>Projects</span></button>
+        <button class="desktop-icon" data-open="skills"><span class="app-icon icon-skills">⌘</span><span>My skills</span></button>
+        <button class="desktop-icon" data-open="journey"><span class="app-icon icon-journey">◷</span><span>My journey</span></button>
+        <button class="desktop-icon" data-open="contact"><span class="app-icon icon-contact">✉</span><span>Contact</span></button>
+        <button class="desktop-icon" data-open="terminal"><span class="app-icon icon-terminal">&gt;_</span><span>Terminal</span></button>
+      </div>
+
+      <aside class="desktop-note glass-panel">
+        <div class="note-head"><span class="live-pulse"></span><span class="mono">CURRENT STATUS</span></div>
+        <h2 id="desktop-status">Open to opportunities</h2>
+        <p>Thanks for stopping by. Open an app to explore.</p>
+        <div class="note-foot"><span>ETHIOPIA</span><span>✦</span><span>BUILDING & LEARNING</span></div>
+      </aside>
+    </section>
+
+    <section id="window-layer" class="window-layer" aria-label="Open applications">
+      <article class="app-window" data-window="about" aria-label="About me window">
+        <div class="window-titlebar" data-drag><div class="window-title"><span class="tiny-app-icon">K</span> About me</div><div class="window-controls"><button data-minimize aria-label="Minimize">−</button><button data-maximize aria-label="Maximize">□</button><button data-close aria-label="Close">×</button></div></div>
+        <div class="window-body" id="about-content"></div>
+      </article>
+      <article class="app-window" data-window="projects" aria-label="Projects window">
+        <div class="window-titlebar" data-drag><div class="window-title"><span class="tiny-app-icon">▦</span> Projects</div><div class="window-controls"><button data-minimize aria-label="Minimize">−</button><button data-maximize aria-label="Maximize">□</button><button data-close aria-label="Close">×</button></div></div>
+        <div class="window-body" id="projects-content"></div>
+      </article>
+      <article class="app-window" data-window="skills" aria-label="Skills window">
+        <div class="window-titlebar" data-drag><div class="window-title"><span class="tiny-app-icon">⌘</span> Skills & tools</div><div class="window-controls"><button data-minimize aria-label="Minimize">−</button><button data-maximize aria-label="Maximize">□</button><button data-close aria-label="Close">×</button></div></div>
+        <div class="window-body" id="skills-content"></div>
+      </article>
+      <article class="app-window" data-window="journey" aria-label="Journey window">
+        <div class="window-titlebar" data-drag><div class="window-title"><span class="tiny-app-icon">◷</span> My journey</div><div class="window-controls"><button data-minimize aria-label="Minimize">−</button><button data-maximize aria-label="Maximize">□</button><button data-close aria-label="Close">×</button></div></div>
+        <div class="window-body" id="journey-content"></div>
+      </article>
+      <article class="app-window" data-window="contact" aria-label="Contact window">
+        <div class="window-titlebar" data-drag><div class="window-title"><span class="tiny-app-icon">✉</span> Contact</div><div class="window-controls"><button data-minimize aria-label="Minimize">−</button><button data-maximize aria-label="Maximize">□</button><button data-close aria-label="Close">×</button></div></div>
+        <div class="window-body" id="contact-content"></div>
+      </article>
+      <article class="app-window terminal-window" data-window="terminal" aria-label="Terminal window">
+        <div class="window-titlebar" data-drag><div class="window-title"><span class="tiny-app-icon terminal-mini">&gt;_</span> Terminal <span class="terminal-subtitle">— zsh</span></div><div class="window-controls"><button data-minimize aria-label="Minimize">−</button><button data-maximize aria-label="Maximize">□</button><button data-close aria-label="Close">×</button></div></div>
+        <div class="window-body terminal-body"><div id="terminal-output" class="terminal-output" role="log" aria-live="polite"></div><form id="terminal-form" class="terminal-form"><label for="terminal-input">kidus@portfolio <b>~</b> $</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command"><button type="submit">Run</button></form></div>
+      </article>
+    </section>
+
+    <div id="launcher" class="launcher glass-panel hidden">
+      <div class="launcher-heading"><span>Applications</span><button id="launcher-close" aria-label="Close launcher">×</button></div>
+      <div class="launcher-grid">
+        <button data-open="about"><span class="app-icon icon-about">K</span>About me</button>
+        <button data-open="projects"><span class="app-icon icon-projects">▦</span>Projects</button>
+        <button data-open="skills"><span class="app-icon icon-skills">⌘</span>Skills</button>
+        <button data-open="journey"><span class="app-icon icon-journey">◷</span>Journey</button>
+        <button data-open="contact"><span class="app-icon icon-contact">✉</span>Contact</button>
+        <button data-open="terminal"><span class="app-icon icon-terminal">&gt;_</span>Terminal</button>
+      </div>
+    </div>
+
+    <div id="command-palette" class="command-overlay hidden">
+      <div class="command-box glass-panel"><div class="command-search"><span>⌕</span><input id="command-input" placeholder="Search apps or type a command…" autocomplete="off"><kbd>ESC</kbd></div><div id="command-results"></div><p class="command-help">↑ ↓ to navigate · Enter to open · Esc to close</p></div>
+    </div>
+
+    <nav class="dock" aria-label="Application dock">
+      <button class="dock-launcher" id="launcher-toggle" aria-label="Open app launcher"><span>K</span></button>
+      <span class="dock-divider"></span>
+      <button class="dock-app" data-open="about" aria-label="About me"><span class="app-icon icon-about">K</span><i></i></button>
+      <button class="dock-app" data-open="projects" aria-label="Projects"><span class="app-icon icon-projects">▦</span><i></i></button>
+      <button class="dock-app" data-open="skills" aria-label="Skills"><span class="app-icon icon-skills">⌘</span><i></i></button>
+      <button class="dock-app" data-open="journey" aria-label="Journey"><span class="app-icon icon-journey">◷</span><i></i></button>
+      <button class="dock-app" data-open="contact" aria-label="Contact"><span class="app-icon icon-contact">✉</span><i></i></button>
+      <button class="dock-app" data-open="terminal" aria-label="Terminal"><span class="app-icon icon-terminal">&gt;_</span><i></i></button>
+    </nav>
+    <div class="desktop-footer mono">KIDUS.OS <span>•</span> DESIGNED & BUILT BY KIDUS ERMIAS</div>
+  </main>
+  <noscript><p class="noscript">This portfolio needs JavaScript enabled to run its desktop interface.</p></noscript>
 </body>
 </html>
