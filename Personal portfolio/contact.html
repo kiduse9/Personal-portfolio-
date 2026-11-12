@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100b20">
+  <meta name="description" content="Send a message to Kidus Ermias.">
+  <title>Contact Kidus — KIDUS.OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="contact.js" defer></script>
+</head>
+<body class="contact-page">
+  <main class="contact-shell">
+    <nav class="contact-nav" aria-label="Contact page navigation">
+      <a href="index.html">← Back to KIDUS.OS</a>
+      <span class="mono eyebrow">KIDUS.OS / CONTACT</span>
+    </nav>
+    <section class="contact-card">
+      <p class="eyebrow mono">LET'S TALK</p>
+      <h1>Send me a message.</h1>
+      <p class="contact-intro">Have a question, collaboration idea, or opportunity? Fill out the form below and your email app will open with your message ready to send.</p>
+      <form id="contact-form" class="contact-form">
+        <div class="contact-field">
+          <label for="sender-name">YOUR NAME</label>
+          <input id="sender-name" name="name" type="text" autocomplete="name" placeholder="Your name" required maxlength="100">
+        </div>
+        <div class="contact-field">
+          <label for="sender-email">YOUR EMAIL</label>
+          <input id="sender-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required maxlength="160">
+        </div>
+        <div class="contact-field">
+          <label for="message-subject">SUBJECT</label>
+          <input id="message-subject" name="subject" type="text" placeholder="What would you like to discuss?" required maxlength="160">
+        </div>
+        <div class="contact-field">
+          <label for="message-body">MESSAGE</label>
+          <textarea id="message-body" name="message" placeholder="Write your message here…" required maxlength="5000"></textarea>
+        </div>
+        <button class="contact-submit" type="submit">Open email to send ↗</button>
+        <p id="contact-feedback" class="contact-feedback" role="status" aria-live="polite"></p>
+      </form>
+      <p class="contact-email-note">Or email me directly at <a id="direct-email" href="mailto:kiduse816@gmail.com">kiduse816@gmail.com</a>.</p>
+    </section>
+  </main>
+</body>
+</html>
