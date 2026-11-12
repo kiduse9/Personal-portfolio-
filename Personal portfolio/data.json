@@ -12,7 +12,8 @@
     "instagram": "https://www.instagram.com/kiduse9",
     "education": "Senior Software Engineering Student — HiLCoE School of Computer Science and Technology",
     "educationUrl": "https://hilcoe.net/",
-    "contactMessage": "Have an idea, a project, or an opportunity in mind? I'd be glad to hear from you."
+    "contactMessage": "Have an idea, a project, or an opportunity in mind? I'd be glad to hear from you.",
+    "linkedin": "https://www.linkedin.com/in/kidus-hailu-3093631b0"
   },
   "skills": [
     {
@@ -69,6 +70,10 @@
     {
       "label": "Instagram",
       "url": "https://www.instagram.com/kiduse9"
+    },
+    {
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/kidus-hailu-3093631b0"
     }
   ]
 }
